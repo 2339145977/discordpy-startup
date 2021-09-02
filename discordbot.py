@@ -17,9 +17,9 @@ class MyClient(discord.Client):
             return
 
         if message.content.startswith(PREFIX + '我要一份涩图'):
-            await message.reply('~rhentai', mention_author=True)
+            await message.send('~rhentai', mention_author=True)
         if message.content.startswith(PREFIX + 'hihao'):
-            await message.content('你好', mention_author=True)
+            await message.reply('你好', mention_author=True)
 
 
 token = getenv('DISCORD_BOT_TOKEN')
