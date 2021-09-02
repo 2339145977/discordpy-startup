@@ -22,7 +22,7 @@ class MyClient(discord.Client):
             await message.reply('晴天好心情猜中了！')
         if message.content.startswith(PREFIX + '涩图'):
             await message.channel.send('~rhentai')
-        if message.content.startswith("晚安"):
+        if message.content.startswith(PREFIX + "晚安"):
             await message.reply('晚安~', mention_author=True)
 
 
