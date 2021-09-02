@@ -1,21 +1,30 @@
-from discord.ext import commands
 from os import getenv
 import traceback
+import random
+import discord
 
-bot = commands.Bot(command_prefix='yz ')
+PREFIX = "yz "
 
+class MyClient(discord.Client):
 
-@bot.event
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
+    async def on_ready(self):
+        print(f'Logged in as {self.user} (ID: {self.user.id})')
+        print('------')
 
+    async def on_message(self, message):
+        # we do not want the bot to reply to itself
+        if message.author.id == self.user.id:
+            return
 
-@bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
+        if message.content.startswith(PREFIX + 'zaima'):
+            await message.reply('不在不在', mention_author=True)
+        if message.content.startswith(PREFIX + 'hihao'):
+            await message.reply('你好', mention_author=True)
 
 
 token = getenv('DISCORD_BOT_TOKEN')
-bot.run(token)
+client = MyClient()
+
+
+
+client.run(token)
