@@ -16,10 +16,14 @@ class MyClient(discord.Client):
         if message.author.id == self.user.id:
             return
 
-        if message.content.startswith(PREFIX + '我要一份涩图'):
-            await message.send('~rhentai', mention_author=True)
-        if message.content.startswith(PREFIX + 'hihao'):
-            await message.reply('你好', mention_author=True)
+        if message.content.startswith(PREFIX + '你好'):
+            await message.reply('你好~', mention_author=True)
+        if message.content.startswith(PREFIX + '难'):
+            await message.reply('晴天好心情猜中了！')
+        if message.content.startswith(PREFIX + '涩图'):
+            await message.channel.send('~rhentai')
+        if message.content.startswith("晚安"):
+            await message.reply('晚安~', mention_author=True)
 
 
 token = getenv('DISCORD_BOT_TOKEN')
