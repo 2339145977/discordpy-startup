@@ -16,8 +16,8 @@ class MyClient(discord.Client):
         if message.author.id == self.user.id:
             return
 
-        if message.content.startswith(PREFIX + 'zaima'):
-            await message.reply('不在不在', mention_author=True)
+        if message.content.startswith(PREFIX + '我要一份涩图'):
+            await message.reply('~hentai', mention_author=True)
         if message.content.startswith(PREFIX + 'hihao'):
             await message.reply('你好', mention_author=True)
 
