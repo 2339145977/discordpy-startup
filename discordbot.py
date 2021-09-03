@@ -24,6 +24,10 @@ class MyClient(discord.Client):
             await message.channel.send('https://nekos.life/lewd')
         if message.content.startswith(PREFIX + "晚安"):
             await message.reply('晚安~', mention_author=True)
+    @bot.command(复读)
+    async def 复读(ctx, arg):
+        await ctx.send(arg)
+
 
 
 token = getenv('DISCORD_BOT_TOKEN')
