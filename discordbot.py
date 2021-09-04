@@ -18,7 +18,7 @@ class MyClient(discord.Client):
 
         if message.content.startswith(PREFIX + '你好'):
             await message.reply('你好~', mention_author=True)
-        if message.content.startswith('难'):
+        if message.content.startswith('难') and len(message.content) < 3::
             await message.channel.send('晴天好心情猜中了！')
         if message.content.startswith(PREFIX + '涩图'):
             await message.channel.send('https://nekos.life/lewd')
